@@ -174,9 +174,8 @@
 }
 
 .ims-login-info-card {
-  width: 100%;
-  max-width: 670px;
-  height: 64px;
+  width: 708px;
+  height: 74px;
   margin: 8px 10px 0;
   display: flex;
   align-items: center;

@@ -43,7 +43,7 @@ export const ForgotPassword = () => {
 
         <div className="ims-forgot-password-heading">
           <h1>
-            Secure Account Recovery &
+            Secure Account Recovery &amp;
             <br />
             Identity Protection
           </h1>
@@ -67,12 +67,12 @@ export const ForgotPassword = () => {
           <div className="ims-forgot-password-info-content">
             <h5>
               All password reset requests are cryptographically signed and
-              logged according to institutional FERPA & SOC-2 compliance
+              logged according to institutional FERPA &amp; SOC-2 compliance
               standards.
             </h5>
 
             <p>
-              Campus Identity & Access Management (IAM) Protocol
+              Campus Identity &amp; Access Management (IAM) Protocol
               <span className="ims-forgot-password-info-dot"></span>
               <span className="ims-forgot-password-info-text"> Verified Institutional Security</span>
             </p>
