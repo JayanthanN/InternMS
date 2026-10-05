@@ -14,27 +14,51 @@ import passwordVerification from "../assets/Login/security-verified.png";
 export const ResetPassword = () => {
   const [Password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
   const isLengthValid = Password.length >= 8;
+
+  const isPasswordValid =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(Password);
 
   const isPasswordMatch =
     Password !== "" && confirmPassword !== "" && Password === confirmPassword;
 
-  const isFormValid = isLengthValid && isPasswordMatch;
+  const isFormValid = isPasswordValid && isPasswordMatch;
 
   const navigate = useNavigate();
 
   const handleUpdate = () => {
-    navigate("");
-  };
+    if (!Password.trim()) {
+      setError("Password is required");
+      return;
+    }
 
+    if (!isPasswordValid) {
+      setError(
+        "Password must contain uppercase, lowercase, number and special character",
+      );
+      return;
+    }
+
+    if (!confirmPassword.trim()) {
+      setError("Password is required");
+      return;
+    }
+
+    if (!isPasswordMatch) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    setError("");
+    navigate("/components-login/password-reset-success");
+  };
   return (
     <div className="ims-reset-password-page">
       <div className="ims-reset-password-left-panel">
         <div className="ims-reset-password-logo">
-          <div className="ims-reset-password-logo-box">
-            <img src={Logo} alt="Logo" />
-          </div>
+          <img src={Logo} className="ims-reset-password-logo-box" alt="Logo" />
 
           <div className="ims-reset-password-title">
             <h3>Internship Management System</h3>
@@ -65,9 +89,11 @@ export const ResetPassword = () => {
         </div>
 
         <div className="ims-reset-password-info-card">
-          <div className="ims-reset-password-info-icon">
-            <img src={whiteShieldIcon} alt="shieldicon" />
-          </div>
+          <img
+            src={whiteShieldIcon}
+            className="ims-reset-password-info-icon"
+            alt="shieldicon"
+          />
 
           <div className="ims-reset-password-info-content">
             <h5>
@@ -87,13 +113,11 @@ export const ResetPassword = () => {
 
       <div className="ims-reset-password-right-panel">
         <div className="ims-reset-password-form">
-          <div className="ims-reset-password-lock">
-            <img
-              src={passwordRecoveryIcon}
-              className="ims-reset-password-header-lock"
-              alt="Password Recovery Icon"
-            />
-          </div>
+          <img
+            src={passwordRecoveryIcon}
+            className="ims-reset-password-lock"
+            alt="Password Recovery Icon"
+          />
 
           <div className="ims-reset-password-header">
             <h2>Set New Password</h2>
@@ -104,7 +128,7 @@ export const ResetPassword = () => {
             New Password
           </label>
 
-          <div className="ims-reset-password-password-box">
+          <div className="ims-reset-password-box">
             <img
               src={LockIcon}
               className="ims-reset-password-lock-icon"
@@ -115,7 +139,10 @@ export const ResetPassword = () => {
               type="password"
               placeholder="Min. 8 characters"
               value={Password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError("");
+              }}
             />
           </div>
 
@@ -123,7 +150,7 @@ export const ResetPassword = () => {
             Confirm New Password
           </label>
 
-          <div className="ims-reset-password-password-box">
+          <div className="ims-reset-password-box">
             <img
               src={passwordVerification}
               className="ims-reset-password-guard-icon"
@@ -134,9 +161,14 @@ export const ResetPassword = () => {
               type="password"
               placeholder="Repeat your password"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                setError("");
+              }}
             />
           </div>
+
+          {error && <p className="ims-reset-password-error">{error}</p>}
 
           <div className="ims-reset-password-validation-box">
             <div className="ims-reset-password-validation-item">
@@ -168,11 +200,7 @@ export const ResetPassword = () => {
             </div>
           </div>
 
-          <button
-            onClick={handleUpdate}
-            className="ims-reset-password-button"
-            disabled={!isFormValid}
-          >
+          <button onClick={handleUpdate} className="ims-reset-password-button">
             Update Password
             <img
               src={arrowRightIcon}

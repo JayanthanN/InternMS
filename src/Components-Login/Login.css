@@ -15,24 +15,13 @@
 .ims-login-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .ims-login-logo-box {
   width: 44px;
   height: 44px;
-  background: #176789;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.ims-login-logo-box > img {
-  width: 22px;
-  height: 18px;
-  object-fit: contain;
+ flex-shrink: 0;
 }
 
 .ims-login-title {
@@ -42,7 +31,7 @@
 
 .ims-login-title h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #ffffff;
   line-height: 25px;
@@ -94,8 +83,8 @@
 }
 
 .ims-login-stat-card {
-  width: 220px;
-  height: 95px;
+  width: 190px;
+  height: 75px;
   box-sizing: border-box;
   box-shadow: 0px 1px 2px 0px #0000000d;
   background: #ffffffd9;
@@ -112,7 +101,7 @@
   color: #132a56;
   font-size: 30px;
   font-weight: 700;
-  line-height: 36px;
+  line-height: 28px;
 }
 
 .ims-login-stat-card > span {
@@ -165,16 +154,14 @@
 }
 
 .ims-login-illustration > img {
-  width: 560px;
+  width: 390px;
   height: auto;
-  transform: translateX(10px);
-  object-fit: contain;
+  transform: translateX(-20px);
   display: block;
-  mix-blend-mode: darken;
 }
 
 .ims-login-info-card {
-  width: 708px;
+  width: 680px;
   height: 74px;
   margin: 8px 10px 0;
   display: flex;
@@ -186,23 +173,11 @@
 }
 
 .ims-login-info-icon {
-  width: 44px;
-  height: 44px;
-  background: #132a56;
-  box-shadow: 0px 2px 4px 0px #0000000d inset;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
   flex-shrink: 0;
-  margin-right: 14px;
-}
-
-.ims-login-info-icon > img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  flex-shrink: 0;
+  
 }
 
 .ims-login-info-card h5 {
@@ -243,7 +218,7 @@
 
 .ims-login-form {
   width: 100%;
-  max-width: 720px;
+  max-width: 450px;
 }
 
 .ims-login-header {
@@ -302,6 +277,10 @@
   outline: none;
 }
 
+.ims-login-password-input::-ms-reveal {
+  display: none;
+}
+
 .ims-login-password-box {
   position: relative;
   width: 100%;
@@ -345,11 +324,11 @@
 }
 
 .ims-login-error {
-  color: red;
+  color: #ef4444;
   font-size: 12px;
-  margin: 6px 0 12px 5px;
+  margin: 6px 0 12px 30px;
   font-weight: 500;
-  margin-left: 30px;
+ 
 }
 
 .ims-login-error-input {
@@ -431,12 +410,12 @@
   font-size: 15px;
 }
 
-.ims-login-google-icon{
+.ims-login-google-icon {
   width: 20px;
   height: 20px;
 }
 
-.ims-login-create-account{
+.ims-login-create-account {
   color: #333334;
   display: flex;
   justify-content: center;
@@ -664,7 +643,7 @@
     width: 180px;
   }
 
-  .ims-login-create-account{
+  .ims-login-create-account {
     font-size: 12px;
   }
 

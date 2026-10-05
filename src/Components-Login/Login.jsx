@@ -17,7 +17,6 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  
 
   const [errors, setErrors] = useState({});
 
@@ -28,7 +27,7 @@ export const Login = () => {
 
     if (!email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    } else if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email)) {
       newErrors.email = "Enter a valid email address";
     }
 
@@ -62,9 +61,7 @@ export const Login = () => {
     <div className="ims-login-page">
       <div className="ims-login-left-container">
         <div className="ims-login-logo">
-          <div className="ims-login-logo-box">
-            <img src={Logo} alt="Logo" />
-          </div>
+          <img src={Logo} className="ims-login-logo-box" alt="Logo" />
 
           <div className="ims-login-title">
             <h3>Internship Management System</h3>
@@ -86,8 +83,8 @@ export const Login = () => {
 
           <p>
             The verified enterprise portal synchronizing university dean
-            approvals, experiential learning hours, <br />and Fortune 500 mentorship
-            agreements
+            approvals, experiential learning hours, <br />
+            and Fortune 500 mentorship agreements
           </p>
         </div>
 
@@ -137,9 +134,11 @@ export const Login = () => {
         </div>
 
         <div className="ims-login-info-card">
-          <div className="ims-login-info-icon">
-            <img src={whiteShieldIcon} alt="shieldicon" />
-          </div>
+          <img
+            src={whiteShieldIcon}
+            className="ims-login-info-icon"
+            alt="shieldicon"
+          />
 
           <div className="ims-login-info-content">
             <h5>
@@ -165,16 +164,18 @@ export const Login = () => {
           <label className="ims-login-mail">Email Address</label>
 
           <div className="ims-login-email-box">
-            <img src={mailIcon}
-             className="ims-login-mail-icon" 
-             alt="mail-icon" />
+            <img
+              src={mailIcon}
+              className="ims-login-mail-icon"
+              alt="mail-icon"
+            />
 
             <input
               type="email"
               placeholder="Enter Email Address"
-            className={`ims-login-mail-input ${
-            errors.email ? "ims-login-error-input" : ""
-          }`}
+              className={`ims-login-mail-input ${
+                errors.email ? "ims-login-error-input" : ""
+              }`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -184,22 +185,27 @@ export const Login = () => {
           <div className="ims-login-password-top">
             <label className="ims-login-password">Password</label>
 
-            <Link to="/forgot-password" className="ims-login-forgot-password">
+            <Link
+              to="/components-login/forgot-password"
+              className="ims-login-forgot-password"
+            >
               Forgot Password?
             </Link>
           </div>
 
           <div className="ims-login-password-box">
-            <img src={lockIcon}
-             className="ims-login-lock-icon" 
-             alt="lock-icon" />
+            <img
+              src={lockIcon}
+              className="ims-login-lock-icon"
+              alt="lock-icon"
+            />
 
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               className={`ims-login-password-input ${
-            errors.password ? "ims-login-error-input" : ""
-          }`}
+                errors.password ? "ims-login-error-input" : ""
+              }`}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -211,7 +217,9 @@ export const Login = () => {
               onClick={() => setShowPassword(!showPassword)}
             />
           </div>
-          {errors.password && <p className="ims-login-error">{errors.password}</p>}
+          {errors.password && (
+            <p className="ims-login-error">{errors.password}</p>
+          )}
 
           <div className="ims-login-checkbox">
             <input type="checkbox" />
@@ -220,9 +228,11 @@ export const Login = () => {
 
           <button className="ims-login-sign-in-button" type="submit">
             Sign In
-            <img src={arrowRightIcon}
-             className="ims-login-arrow-icon" 
-             alt="arrow-icon" />
+            <img
+              src={arrowRightIcon}
+              className="ims-login-arrow-icon"
+              alt="arrow-icon"
+            />
           </button>
 
           <div className="ims-login-divider">
@@ -232,12 +242,12 @@ export const Login = () => {
           </div>
 
           <div className="ims-login-google-section">
-            <button type="button"
-             className="ims-login-google-button">
-
-              <img src={googleLogo} 
-              className="ims-login-google-icon" 
-              alt="google-icon" />
+            <button type="button" className="ims-login-google-button">
+              <img
+                src={googleLogo}
+                className="ims-login-google-icon"
+                alt="google-icon"
+              />
               Google
             </button>
 

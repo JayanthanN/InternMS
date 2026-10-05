@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ForgotPasswordOtp.css";
+import "./OtpForgotPassword.css";
 import Logo from "../assets/Login/logo.png";
 import otpVerification from "../assets/Login/otp-verification.png";
 import whiteShieldIcon from "../assets/Login/shield-white.png";
@@ -9,7 +9,7 @@ import arrowRightIcon from "../assets/Login/arrow-right.png";
 import forgotLockIcon from "../assets/Login/lock-icon.png";
 import verificationshield from "../assets/Login/verification-shield.png";
 
-export const ForgotPasswordOtp = () => {
+export const OtpForgotPassword = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [error, setError] = useState("");
 
@@ -42,19 +42,21 @@ export const ForgotPasswordOtp = () => {
     const enteredOtp = otp.join("");
 
     if (enteredOtp.length !== 6) {
-      setError("Please enter the complete 6-digit OTP.");
+      setError("Please enter the 6-digit OTP.");
       return;
     }
 
-    navigate("/reset-password");
+    navigate("/components-login/reset-password");
   };
   return (
     <div className="ims-forgot-password-otp-page">
       <div className="ims-forgot-password-otp-left-panel">
         <div className="ims-forgot-password-otp-logo">
-          <div className="ims-forgot-password-otp-logo-box">
-            <img src={Logo} alt="Logo" />
-          </div>
+        
+            <img src={Logo}
+            className="ims-forgot-password-otp-logo-box"
+             alt="Logo" />
+         
 
           <div className="ims-forgot-password-otp-title">
             <h3>Internship Management System</h3>
@@ -85,9 +87,11 @@ export const ForgotPasswordOtp = () => {
         </div>
 
         <div className="ims-forgot-password-otp-info-card">
-          <div className="ims-forgot-password-otp-info-icon">
-            <img src={whiteShieldIcon} alt="shieldicon" />
-          </div>
+         
+            <img src={whiteShieldIcon}
+            className="ims-forgot-password-otp-info-icon"
+             alt="shieldicon" />
+       
 
           <div className="ims-forgot-password-otp-info-content">
             <h5>
@@ -126,12 +130,13 @@ export const ForgotPasswordOtp = () => {
                 maxLength={1}
                 value={digit}
                 autoFocus={index === 0}
-                className="ims-forgot-password-otp-input"
+                className={`ims-forgot-password-otp-input ${error ? "ims-error":""}`}
                 onChange={(e) => handleChange(e.target.value, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
               />
-            ))}
+            ))}              
           </div>
+          {error && <p className="ims-forgot-password-otp-error">{error}</p>}
 
           <button
             onClick={handleVerify}
@@ -145,7 +150,7 @@ export const ForgotPasswordOtp = () => {
             />
           </button>
 
-          {error && <p className="ims-forgot-password-otp-error">{error}</p>}
+        
 
           <p className="ims-forgot-password-otp-resend">
             Didn't receive the code?<span> Resend (in 00:55)</span>

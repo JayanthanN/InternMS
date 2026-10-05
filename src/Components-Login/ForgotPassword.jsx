@@ -16,7 +16,7 @@ export const ForgotPassword = () => {
   const navigate = useNavigate();
 
   const handleSend = () => {
-    navigate("/forgot-passwordotp", {
+    navigate("/components-login/otp-forgot-password", {
       state: {
         method: selected,
       },
@@ -26,9 +26,11 @@ export const ForgotPassword = () => {
     <div className="ims-forgot-password-page">
       <div className="ims-forgot-password-left-panel">
         <div className="ims-forgot-password-logo">
-          <div className="ims-forgot-password-logo-box">
-            <img src={Logo} alt="Logo" />
-          </div>
+          
+            <img src={Logo} 
+            className="ims-forgot-password-logo-box"
+            alt="Logo" />
+          
 
           <div className="ims-forgot-password-title">
             <h3>Internship Management System</h3>
@@ -60,9 +62,11 @@ export const ForgotPassword = () => {
         </div>
 
         <div className="ims-forgot-password-info-card">
-          <div className="ims-forgot-password-info-icon">
-            <img src={whiteShieldIcon} alt="shieldicon" />
-          </div>
+         
+            <img src={whiteShieldIcon} 
+            className="ims-forgot-password-info-icon"
+            alt="shieldicon" />
+       
 
           <div className="ims-forgot-password-info-content">
             <h5>
@@ -82,13 +86,13 @@ export const ForgotPassword = () => {
       <div className="ims-forgot-password-right-panel">
         <div className="ims-forgot-password-form">
           <div className="ims-forgot-password-header">
-            <div className="ims-forgot-password-lock">
+           
               <img
                 src={passwordRecoveryIcon}
-                className="ims-forgot-password-header-lock"
+                className="ims-forgot-password-lock"
                 alt="forgotlock-icon"
               />
-            </div>
+           
             <h2>Forgot Password?</h2>
 
             <p className="ims-forgot-password-text">
@@ -107,9 +111,11 @@ export const ForgotPassword = () => {
             }`}
             onClick={() => setSelected("email")}
           >
-            <div className="ims-forgot-password-mail-icon-box">
-              <img src={emailVerificationIcon} alt="mail-icon" />
-            </div>
+          
+              <img src={emailVerificationIcon} 
+               className="ims-forgot-password-mail-icon"
+               alt="mail-icon" />
+           
 
             <div className="ims-forgot-password-method-info">
               <h4>Email Address</h4>
@@ -133,9 +139,11 @@ export const ForgotPassword = () => {
             }`}
             onClick={() => setSelected("mobile")}
           >
-            <div className="ims-forgot-password-mobile-icon-box">
-              <img src={smsVerificationIcon} alt="sms-icon" />
-            </div>
+           
+              <img src={smsVerificationIcon}
+              className="ims-forgot-password-mobile-icon"
+               alt="sms-icon" />
+          
 
             <div className="ims-forgot-password-method-info">
               <h4>SMS / Text Message</h4>

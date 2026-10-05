@@ -3,8 +3,9 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Login } from "./Components-Login/Login";
 import { ForgotPassword } from "./Components-Login/ForgotPassword";
-import { ForgotPasswordOtp } from "./Components-Login/ForgotPasswordOtp";
+import { OtpForgotPassword } from "./Components-Login/OtpForgotPassword";
 import { ResetPassword } from "./Components-Login/ResetPassword";
+import { PasswordResetSuccess } from "./Components-Login/PasswordResetSuccess";
 
 const router = createBrowserRouter([
   {
@@ -13,19 +14,24 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/forgot-password",
+    path: "/components-login/forgot-password",
     element: <ForgotPassword />,
   },
 
   {
-    path: "/forgot-passwordotp",
-    element: <ForgotPasswordOtp />,
+    path: "/components-login/otp-forgot-password",
+    element: <OtpForgotPassword />,
   },
 
   {
-    path: "/reset-password",
+    path: "/components-login/reset-password",
     element: <ResetPassword />,
   },
+
+  {
+    path: "/components-login/password-reset-success",
+    element: <PasswordResetSuccess />,
+  }
 ]);
 
 function App() {
