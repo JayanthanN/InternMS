@@ -6,6 +6,7 @@ import { ForgotPassword } from "./Components-Login/ForgotPassword";
 import { OtpForgotPassword } from "./Components-Login/OtpForgotPassword";
 import { ResetPassword } from "./Components-Login/ResetPassword";
 import { PasswordResetSuccess } from "./Components-Login/PasswordResetSuccess";
+import { HRRegistration } from "./Components-Registration/HRRegistration";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,12 @@ const router = createBrowserRouter([
   {
     path: "/components-login/password-reset-success",
     element: <PasswordResetSuccess />,
-  }
+  },
+
+  {
+    path: "/components-registration/hr-registration",
+    element: <HRRegistration />,
+  },
 ]);
 
 function App() {
@@ -39,3 +45,6 @@ function App() {
 }
 
 export default App;
+
+
+

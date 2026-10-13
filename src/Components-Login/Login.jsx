@@ -253,7 +253,7 @@ export const Login = () => {
 
             <p className="ims-login-create-account">
               Don't have an account?
-              <Link to="/" className="ims-login-create-account-link">
+              <Link to="/components-registration/hr-registration" className="ims-login-create-account-link">
                 Create Account
               </Link>
             </p>
