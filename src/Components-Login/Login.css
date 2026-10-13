@@ -1,14 +1,19 @@
 .ims-login-page {
   width: 100%;
-  min-height: 100vh;
+  max-width: 1920px;
+  height: 100vh;
   background: linear-gradient(270deg, #ffffff 35%, #566b94 93%);
   font-family: "Open Sans", sans-serif;
   display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .ims-login-left-container {
-  width: 60%;
-  min-height: 100vh;
+  width: 50%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
   padding: 45px 50px 35px;
 }
 
@@ -21,7 +26,7 @@
 .ims-login-logo-box {
   width: 44px;
   height: 44px;
- flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .ims-login-title {
@@ -69,7 +74,7 @@
 
 .ims-login-heading p {
   margin: 12px 0 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   line-height: 22px;
   color: #ffffff;
@@ -84,7 +89,7 @@
 
 .ims-login-stat-card {
   width: 190px;
-  height: 75px;
+  height: 78px;
   box-sizing: border-box;
   box-shadow: 0px 1px 2px 0px #0000000d;
   background: #ffffffd9;
@@ -99,7 +104,7 @@
 .ims-login-stat-card h2 {
   margin: 0;
   color: #132a56;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 28px;
 }
@@ -177,7 +182,6 @@
   height: 48px;
   margin-right: 12px;
   flex-shrink: 0;
-  
 }
 
 .ims-login-info-card h5 {
@@ -207,8 +211,8 @@
   gap: 4px;
 }
 .ims-login-right-container {
-  width: 40%;
-  min-height: 100vh;
+  width: 50%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -328,12 +332,10 @@
   font-size: 12px;
   margin: 6px 0 12px 30px;
   font-weight: 500;
- 
 }
 
 .ims-login-error-input {
   border: 1px solid #ef4444;
-  
 }
 
 .ims-login-checkbox {
@@ -456,202 +458,4 @@
   margin-top: 8px;
 }
 
-@media (max-width: 1200px) {
-  .ims-login-left-container {
-    width: 55%;
-    padding: 45px 50px 35px;
-  }
 
-  .ims-login-right-container {
-    width: 45%;
-    padding: 40px 30px;
-  }
-
-  .ims-login-heading h1 {
-    font-size: 32px;
-    line-height: 42px;
-  }
-
-  .ims-login-heading p {
-    font-size: 14px;
-  }
-
-  .ims-login-statistics {
-    gap: 15px;
-  }
-
-  .ims-login-stat-card {
-    width: 200px;
-  }
-
-  .ims-login-illustration > img {
-    width: 520px;
-    height: auto;
-    transform: translateX(10px);
-  }
-
-  .ims-login-info-card {
-    width: 100%;
-  }
-
-  .ims-login-form {
-    max-width: 480px;
-  }
-}
-
-@media (max-width: 768px) {
-  .ims-login-page {
-    flex-direction: column;
-    background: #ffffff;
-  }
-
-  .ims-login-left-container {
-    width: 100%;
-    min-height: auto;
-    padding: 30px 25px;
-    background: linear-gradient(135deg, #566b94, #132a56);
-  }
-
-  .ims-login-right-container {
-    width: 100%;
-    min-height: auto;
-    padding: 50px 25px;
-  }
-
-  .ims-login-logo {
-    justify-content: flex-start;
-  }
-
-  .ims-login-heading h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-
-  .ims-login-heading p {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .ims-login-statistics {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .ims-login-stat-card {
-    flex: 1 1 150px;
-    width: auto;
-  }
-
-  .ims-login-illustration {
-    display: none;
-  }
-
-  .ims-login-info-card {
-    width: 100%;
-    height: auto;
-    min-height: 74px;
-  }
-
-  .ims-login-form {
-    width: 100%;
-    max-width: 530px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ims-login-left-container {
-    padding: 25px 18px;
-  }
-
-  .ims-login-title h3 {
-    font-size: 16px;
-  }
-
-  .ims-login-title p {
-    font-size: 10px;
-  }
-
-  .ims-login-heading {
-    margin-top: 25px;
-  }
-
-  .ims-login-heading h1 {
-    font-size: 24px;
-    line-height: 32px;
-  }
-
-  .ims-login-heading p {
-    font-size: 12px;
-    line-height: 18px;
-  }
-
-  .ims-login-statistics {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .ims-login-stat-card {
-    width: 100%;
-  }
-
-  .ims-login-stat-card:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .ims-login-info-card {
-    padding: 10px;
-  }
-
-  .ims-login-info-icon {
-    width: 38px;
-    height: 38px;
-    margin-right: 10px;
-  }
-
-  .ims-login-info-card h5 {
-    font-size: 11px;
-    line-height: 15px;
-  }
-
-  .ims-login-info-card p {
-    font-size: 10px;
-    line-height: 14px;
-  }
-
-  .ims-login-right-container {
-    padding: 40px 18px;
-  }
-
-  .ims-login-header {
-    font-size: 28px;
-  }
-
-  .ims-login-text {
-    font-size: 14px;
-    margin-bottom: 28px;
-  }
-
-  .ims-login-divider {
-    gap: 10px;
-  }
-
-  .ims-login-divider p {
-    font-size: 12px;
-  }
-
-  .ims-login-google-button {
-    width: 180px;
-  }
-
-  .ims-login-create-account {
-    font-size: 12px;
-  }
-
-  .ims-login-create-account-link {
-    font-size: 12px;
-  }
-
-  .ims-login-footer {
-    margin-top: 35px;
-  }
-}
