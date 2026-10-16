@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./HRRegistration.css";
-import { RegistrationHeader } from "../Component-Reuseable/RegistrationHeader";
+import { LogoHeader } from "../Component-Reuseable/LogoHeader";
 import HRIllustration from "../assets/Registration/HRRegistrationIllustration.png";
 import RegisterUsers from "../assets/Registration/RegisterUsers.png";
 import CompanyIcon from "../assets/Registration/Company-icon.png";
@@ -106,7 +106,7 @@ export const HRRegistration = () => {
   return (
     <div className="ims-hr-registration-page">
       <div className="ims-hr-registration-left-section">
-        <RegistrationHeader />
+        <LogoHeader />
 
         <div className="ims-hr-registration-heading-section">
           <h4 className="ims-hr-registration-heading">

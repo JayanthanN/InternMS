@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./PasswordResetSuccess.css";
-import Logo from "../assets/Login/logo.png";
 import whiteShieldIcon from "../assets/Login/shield-white.png";
 import passwordResetSuccess from "../assets/Login/password-reset-success.png";
 import recoveryCompleteIcon from "../assets/Login/recovery-complete-icon.png";
 import recoverySuccessIcon from "../assets/Login/reset-success.png";
+import { LogoHeader } from "../Component-Reuseable/LogoHeader";
 
 export const PasswordResetSuccess = () => {
   const navigate = useNavigate();
@@ -16,25 +16,8 @@ export const PasswordResetSuccess = () => {
   return (
     <div className="ims-reset-success-page">
       <div className="ims-reset-success-left-panel">
-        <div className="ims-reset-success-logo">
-         
-            <img src={Logo} 
-            className="ims-reset-success-logo-box"
-            alt="Logo" />
-        
-
-          <div className="ims-reset-success-title">
-            <h3>Internship Management System</h3>
-
-            <p>
-              Learn
-              <span className="ims-reset-success-title-dot"></span>
-              Grow
-              <span className="ims-reset-success-title-dot"></span>
-              Build Your Future
-            </p>
-          </div>
-        </div>
+       
+       <LogoHeader/>
 
         <div className="ims-reset-success-heading">
           <h1>

@@ -1,21 +1,21 @@
-.ims-registration-logo {
+.ims-logo-header {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.ims-registration-logo-icon {
-  width: 48px;
+.ims-logo-header-icon {
+  width: 44px;
   height: auto;
 }
 
-.ims-registration-header {
+.ims-logo-header-title {
   font-size: 20px;
   font-weight: 700;
   color: #ffffff;
 }
 
-.ims-registration-text {
+.ims-logo-header-tagline {
   font-size: 12px;
   font-weight: 600;
   color: #ffffff;

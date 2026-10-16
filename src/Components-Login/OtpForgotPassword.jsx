@@ -2,12 +2,12 @@ import React from "react";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./OtpForgotPassword.css";
-import Logo from "../assets/Login/logo.png";
 import otpVerification from "../assets/Login/otp-verification.png";
 import whiteShieldIcon from "../assets/Login/shield-white.png";
 import arrowRightIcon from "../assets/Login/arrow-right.png";
 import forgotLockIcon from "../assets/Login/lock-icon.png";
 import verificationshield from "../assets/Login/verification-shield.png";
+import { LogoHeader } from "../Component-Reuseable/LogoHeader";
 
 export const OtpForgotPassword = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -51,23 +51,8 @@ export const OtpForgotPassword = () => {
   return (
     <div className="ims-forgot-password-otp-page">
       <div className="ims-forgot-password-otp-left-panel">
-        <div className="ims-forgot-password-otp-logo">
-        
-            <img src={Logo}
-            className="ims-forgot-password-otp-logo-box"
-             alt="Logo" />
-         
-
-          <div className="ims-forgot-password-otp-title">
-            <h3>Internship Management System</h3>
-
-            <p>
-              Learn<span className="ims-forgot-password-otp-title-dot"></span>
-              Grow <span className="ims-forgot-password-otp-title-dot"></span>
-              Build Your Future
-            </p>
-          </div>
-        </div>
+       
+       <LogoHeader/>
 
         <div className="ims-forgot-password-otp-heading">
           <h1>

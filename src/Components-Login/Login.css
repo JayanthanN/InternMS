@@ -2,7 +2,8 @@
   width: 100%;
   max-width: 1920px;
   height: 100vh;
-  background: linear-gradient(270deg, #ffffff 35%, #566b94 93%);
+  max-height: 1080px;
+  background: linear-gradient(to left, #ffffff 35%, #566b94 93%);
   font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center;
@@ -12,71 +13,22 @@
 .ims-login-left-container {
   width: 50%;
   height: auto;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 45px 50px 35px;
 }
 
-.ims-login-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ims-login-logo-box {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-}
-
-.ims-login-title {
-  display: flex;
-  flex-direction: column;
-}
-
-.ims-login-title h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 25px;
-}
-
-.ims-login-title p {
-  font-size: 12px;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: 25px;
-}
-
-.ims-login-title-dot {
-  width: 4px;
-  height: 4px;
-  background: #ffffff;
-  border-radius: 50%;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 6px;
-}
-
-.ims-login-heading {
-  margin-top: 32px;
-}
-
 .ims-login-heading h1 {
-  margin: 0;
   color: #ffffff;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 700;
-  line-height: 44px;
-  letter-spacing: -0.8px;
 }
 
 .ims-login-heading p {
   margin: 12px 0 0;
   font-size: 13px;
   font-weight: 600;
-  line-height: 22px;
   color: #ffffff;
 }
 
@@ -91,7 +43,6 @@
   width: 190px;
   height: 78px;
   box-sizing: border-box;
-  box-shadow: 0px 1px 2px 0px #0000000d;
   background: #ffffffd9;
   border-radius: 12px;
   padding: 14px 18px;
@@ -102,7 +53,6 @@
 }
 
 .ims-login-stat-card h2 {
-  margin: 0;
   color: #132a56;
   font-size: 26px;
   font-weight: 700;
@@ -137,14 +87,12 @@
 }
 
 .ims-login-stat-growth {
-  margin: 0;
   color: #109d58;
   font-size: 12px;
   font-weight: 600;
 }
 
 .ims-login-stat-approved {
-  margin: 0;
   color: #176789;
   font-size: 12px;
   font-weight: 600;
@@ -161,8 +109,6 @@
 .ims-login-illustration > img {
   width: 390px;
   height: auto;
-  transform: translateX(-20px);
-  display: block;
 }
 
 .ims-login-info-card {
@@ -179,13 +125,11 @@
 
 .ims-login-info-icon {
   width: 48px;
-  height: 48px;
+  height: auto;
   margin-right: 12px;
-  flex-shrink: 0;
 }
 
 .ims-login-info-card h5 {
-  margin: 0;
   font-size: 13px;
   font-weight: 600;
   line-height: 18px;
@@ -214,7 +158,6 @@
   width: 50%;
   height: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px 35px;
@@ -226,7 +169,6 @@
 }
 
 .ims-login-header {
-  margin: 0;
   font-weight: 700;
   font-size: 32px;
   color: #132a56;
@@ -279,10 +221,6 @@
   border: 1px solid #c7c4d8;
   border-radius: 8px;
   outline: none;
-}
-
-.ims-login-password-input::-ms-reveal {
-  display: none;
 }
 
 .ims-login-password-box {
@@ -458,4 +396,212 @@
   margin-top: 8px;
 }
 
+@media (min-width: 801px) and (max-width: 1024px) {
+  .ims-login-left-container,
+  .ims-login-right-container {
+    padding: 24px 20px;
+    box-sizing: border-box;
+  }
 
+  .ims-login-heading {
+    margin-top: 15px;
+  }
+
+  .ims-login-heading p {
+    font-size: 15px;
+  }
+
+  .ims-login-illustration > img {
+    width: 100%;
+    max-width: 260px;
+    transform: none;
+  }
+
+  .ims-login-info-card {
+    width: 100%;
+    height: auto;
+    margin: 15px 0 0;
+    padding: 8px;
+  }
+
+  .ims-login-stat-card {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+    padding: 8px 4px;
+  }
+
+  .ims-login-stat-card > span {
+    font-size: 8px;
+    text-align: center;
+  }
+
+  .ims-login-form {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+  .ims-login-page {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    align-items: center;
+  }
+
+  .ims-login-left-container,
+  .ims-login-right-container {
+    height: auto;
+    min-width: 0;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .ims-login-left-container {
+    justify-content: flex-start;
+  }
+
+  .ims-login-right-container {
+    justify-content: center;
+  }
+
+  .ims-login-left-container .ims-logo-header-title {
+    font-size: 17px;
+  }
+
+  .ims-login-heading {
+    margin-top: 15px;
+  }
+
+  .ims-login-heading h1 {
+    font-size: 20px;
+  }
+
+  .ims-login-heading p {
+    font-size: 11px;
+  }
+
+  .ims-login-statistics {
+    gap: 5px;
+    margin-top: 12px;
+  }
+
+  .ims-login-stat-card {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    padding: 8px 2px;
+  }
+
+  .ims-login-stat-card h2 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .ims-login-stat-card > span {
+    font-size: 7px;
+    line-height: 11px;
+    text-align: center;
+  }
+
+  .ims-login-stat-icon {
+    gap: 3px;
+  }
+
+  .ims-login-stat-growth,
+  .ims-login-stat-approved {
+    font-size: 8px;
+  }
+
+  .ims-login-illustration {
+    margin-top: 4px;
+  }
+
+  .ims-login-illustration > img {
+    width: 100%;
+    max-width: 210px;
+    transform: none;
+  }
+
+  .ims-login-info-card {
+    width: 100%;
+    height: auto;
+    margin: 8px 0 0;
+    padding: 8px;
+  }
+
+  .ims-login-info-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  .ims-login-info-content {
+    min-width: 0;
+  }
+
+  .ims-login-info-card h5 {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .ims-login-info-card p {
+    font-size: 9px;
+    line-height: 13px;
+  }
+
+  .ims-login-form {
+    width: 100%;
+    max-width: 450px;
+    min-width: 0;
+  }
+
+  .ims-login-header {
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  .ims-login-mail-input,
+  .ims-login-password-input {
+    height: 40px;
+    padding: 8px 34px;
+    font-size: 11px;
+    box-sizing: border-box;
+  }
+
+  .ims-login-mail-icon {
+    width: 15px;
+    height: 13px;
+    top: 13px;
+  }
+
+  .ims-login-lock-icon {
+    width: 13px;
+    height: 16px;
+    top: 12px;
+  }
+
+  .ims-login-eye-icon {
+    width: 16px;
+    height: 11px;
+    right: 10px;
+  }
+
+  .ims-login-sign-in-button {
+    height: 40px;
+    font-size: 12px;
+  }
+  .ims-login-divider {
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+
+  .ims-login-create-account {
+    margin-top: 18px;
+  }
+
+  .ims-login-footer {
+    margin-top: 20px;
+  }
+}

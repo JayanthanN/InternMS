@@ -2,16 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import Logo from "../assets/Login/logo.png";
 import growthIcon from "../assets/Login/growth-icon.png";
 import shieldIcon from "../assets/Login/shield-icon.png";
 import whiteShieldIcon from "../assets/Login/shield-white.png";
 import mailIcon from "../assets/Login/mail-icon.png";
 import lockIcon from "../assets/Login/lock-icon.png";
-import eyeIcon from "../assets/Login/eye-icon.png";
+import ShowPassword from "../assets/Login/eye-icon.png";
 import arrowRightIcon from "../assets/Login/arrow-right.png";
 import googleLogo from "../assets/Login/google-logo.png";
 import internshipIllustration from "../assets/Login/internship-illustration.png";
+import HidePassword from "../assets/Registration/HidePassword.png";
+import { LogoHeader } from "../Component-Reuseable/LogoHeader";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -60,19 +61,8 @@ export const Login = () => {
   return (
     <div className="ims-login-page">
       <div className="ims-login-left-container">
-        <div className="ims-login-logo">
-          <img src={Logo} className="ims-login-logo-box" alt="Logo" />
 
-          <div className="ims-login-title">
-            <h3>Internship Management System</h3>
-
-            <p>
-              Learn<span className="ims-login-title-dot"></span>
-              Grow <span className="ims-login-title-dot"></span>
-              Build Your Future
-            </p>
-          </div>
-        </div>
+      <LogoHeader/>
 
         <div className="ims-login-heading">
           <h1>
@@ -211,7 +201,7 @@ export const Login = () => {
             />
 
             <img
-              src={eyeIcon}
+               src={showPassword ? HidePassword : ShowPassword}
               className="ims-login-eye-icon"
               alt="eye-icon"
               onClick={() => setShowPassword(!showPassword)}

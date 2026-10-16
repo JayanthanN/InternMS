@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ForgotPassword.css";
-import Logo from "../assets/Login/logo.png";
 import whiteShieldIcon from "../assets/Login/shield-white.png";
 import arrowRightIcon from "../assets/Login/arrow-right.png";
 import accountRecovery from "../assets/Login/account-recovery.png";
@@ -10,6 +9,7 @@ import passwordRecoveryIcon from "../assets/Login/password-recovery-icon.png";
 import emailVerificationIcon from "../assets/Login/email-verification-icon.png";
 import smsVerificationIcon from "../assets/Login/sms-verification-icon.png";
 import backArrowIcon from "../assets/Login/back-arrow-icon.png";
+import { LogoHeader } from "../Component-Reuseable/LogoHeader";
 
 export const ForgotPassword = () => {
   const [selected, setSelected] = useState("email");
@@ -25,23 +25,7 @@ export const ForgotPassword = () => {
   return (
     <div className="ims-forgot-password-page">
       <div className="ims-forgot-password-left-panel">
-        <div className="ims-forgot-password-logo">
-          
-            <img src={Logo} 
-            className="ims-forgot-password-logo-box"
-            alt="Logo" />
-          
-
-          <div className="ims-forgot-password-title">
-            <h3>Internship Management System</h3>
-
-            <p>
-              Learn<span className="ims-forgot-password-title-dot"></span>
-              Grow <span className="ims-forgot-password-title-dot"></span>
-              Build Your Future
-            </p>
-          </div>
-        </div>
+       <LogoHeader/>
 
         <div className="ims-forgot-password-heading">
           <h1>

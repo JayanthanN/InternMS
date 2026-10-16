@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ResetPassword.css";
-import Logo from "../assets/Login/logo.png";
 import whiteShieldIcon from "../assets/Login/shield-white.png";
 import arrowRightIcon from "../assets/Login/arrow-right.png";
 import LockIcon from "../assets/Login/lock-icon.png";
@@ -10,6 +9,7 @@ import passwordRecoveryIcon from "../assets/Login/password-recovery-icon.png";
 import passwordSecurity from "../assets/Login/password-security.png";
 import passwordSuccess from "../assets/Login/verification-success.png";
 import passwordVerification from "../assets/Login/security-verified.png";
+import { LogoHeader } from "../Component-Reuseable/LogoHeader";
 
 export const ResetPassword = () => {
   const [Password, setPassword] = useState("");
@@ -57,21 +57,8 @@ export const ResetPassword = () => {
   return (
     <div className="ims-reset-password-page">
       <div className="ims-reset-password-left-panel">
-        <div className="ims-reset-password-logo">
-          <img src={Logo} className="ims-reset-password-logo-box" alt="Logo" />
-
-          <div className="ims-reset-password-title">
-            <h3>Internship Management System</h3>
-
-            <p>
-              Learn
-              <span className="ims-reset-password-title-dot"></span>
-              Grow
-              <span className="ims-reset-password-title-dot"></span>
-              Build Your Future
-            </p>
-          </div>
-        </div>
+       
+       <LogoHeader/>
 
         <div className="ims-reset-password-heading">
           <h1>Set a Strong Master Password</h1>
