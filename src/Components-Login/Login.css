@@ -170,14 +170,14 @@
 
 .ims-login-header {
   font-weight: 700;
-  font-size: 32px;
+  font-size: 28px;
   color: #132a56;
   line-height: 38px;
 }
 
 .ims-login-text {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   color: #333334;
   margin: 5px 0 32px;
   line-height: 24px;
@@ -190,7 +190,7 @@
 
 .ims-login-mail-icon {
   width: 20px;
-  height: 16px;
+  height: auto;
   position: absolute;
   left: 12px;
   top: 18px;
@@ -205,18 +205,10 @@
   display: block;
 }
 
-.ims-login-mail-input {
-  width: 100%;
-  height: 54px;
-  padding: 15px 45px;
-  border: 1px solid #c7c4d8;
-  border-radius: 8px;
-  outline: none;
-}
-
+.ims-login-mail-input,
 .ims-login-password-input {
   width: 100%;
-  height: 54px;
+  height: 48px;
   padding: 15px 45px;
   border: 1px solid #c7c4d8;
   border-radius: 8px;
@@ -249,7 +241,7 @@
 
 .ims-login-lock-icon {
   width: 16px;
-  height: 21px;
+  height: auto;
   position: absolute;
   left: 12px;
   top: 15px;
@@ -294,7 +286,7 @@
 
 .ims-login-sign-in-button {
   width: 100%;
-  height: 52px;
+  height: 48px;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -378,7 +370,7 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .ims-login-footer a {
   color: #464555;
@@ -396,7 +388,9 @@
   margin-top: 8px;
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
+
+
+@media (min-width: 1024px) and (max-width: 1440px) {
   .ims-login-left-container,
   .ims-login-right-container {
     padding: 24px 20px;
@@ -441,7 +435,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 800px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .ims-login-page {
     height: auto;
     min-height: 100vh;

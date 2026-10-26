@@ -21,3 +21,23 @@
   color: #ffffff;
   margin-bottom: 10px;
 }
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ims-logo-header {
+    gap: 8px;
+  }
+
+  .ims-logo-header-icon {
+    width: 36px;
+  }
+
+  .ims-logo-header-title {
+    font-size: 17px;
+  }
+
+  .ims-logo-header-tagline {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+}

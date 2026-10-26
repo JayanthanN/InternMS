@@ -116,7 +116,8 @@ export const HRRegistration = () => {
           </h4>
 
           <p className="ims-hr-registration-heading-text">
-            Streamline your recruitment process, manage internships with ease,and <br />
+            Streamline your recruitment process, manage internships with
+            ease,and <br />
             connect with the next generation of industry leaders.
           </p>
         </div>
@@ -195,7 +196,10 @@ export const HRRegistration = () => {
                   className={`ims-hr-registration-form-select ${errors.registeringAs ? "ims-hr-registration-error-border" : ""}`}
                 >
                   <option value="">Select Role</option>
+                  <option value="Intern">Intern</option>
+                  <option value="Mentor">Mentor</option>
                   <option value="HR">HR</option>
+                  <option value="Company">Company</option>
                 </select>
 
                 <img
@@ -291,7 +295,10 @@ export const HRRegistration = () => {
                     className={`ims-hr-registration-form-select ${errors.department ? "ims-hr-registration-error-border" : ""}`}
                   >
                     <option value=""> Select department </option>
+                    <option value="Intern">Intern</option>
+                    <option value="Mentor">Mentor</option>
                     <option value="HR">HR</option>
+                    <option value="Company">Company</option>
                   </select>
 
                   <img
@@ -432,7 +439,8 @@ export const HRRegistration = () => {
             <div className="ims-hr-registration-signin">
               <p className="ims-hr-registration-signin-text">
                 Already have an account?{" "}
-                <Link to="/" className="ims-hr-registration-signin-link">
+                <Link to="/components-registration/admin-registration"
+                 className="ims-hr-registration-signin-link">
                   {" "}
                   Sign in
                 </Link>

@@ -7,6 +7,7 @@ import { OtpForgotPassword } from "./Components-Login/OtpForgotPassword";
 import { ResetPassword } from "./Components-Login/ResetPassword";
 import { PasswordResetSuccess } from "./Components-Login/PasswordResetSuccess";
 import { HRRegistration } from "./Components-Registration/HRRegistration";
+import { AdminRegistration } from "./Components-Registration/AdminRegistration";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,12 @@ const router = createBrowserRouter([
   {
     path: "/components-registration/hr-registration",
     element: <HRRegistration />,
+  },
+
+  {
+    path: "/components-registration/admin-registration",
+    element: <AdminRegistration/>
+
   },
 ]);
 

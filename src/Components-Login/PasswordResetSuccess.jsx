@@ -70,9 +70,9 @@ export const PasswordResetSuccess = () => {
 
           <div className="ims-reset-success-header">
             <div className="ims-reset-success-subtitle">
-              <div className="ims-reset-success-subtitle-icon">
-                <img src={recoveryCompleteIcon} alt="recoveryCompleteIcon" />
-              </div>
+             
+                <img src={recoveryCompleteIcon}className="ims-reset-success-subtitle-icon" alt="recoveryCompleteIcon" />
+              
 
               <p>
                 RECOVERY COMPLETED <span></span> 256-BIT ENCRYPTED
