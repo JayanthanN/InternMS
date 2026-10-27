@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./HRRegistration.css";
 import { LogoHeader } from "../Component-Reuseable/LogoHeader";
@@ -10,23 +10,61 @@ import ShowPassword from "../assets/Registration/ShowPassword.png";
 import HidePassword from "../assets/Registration/HidePassword.png";
 import DropdownArrow from "../assets/Registration/DropdownArrow.png";
 
+const HR_DRAFT_KEY = "hrRegistrationDraft";
+
+const getHRDraft = () => {
+  try {
+    return JSON.parse(sessionStorage.getItem(HR_DRAFT_KEY)) || {};
+  } catch {
+    return {};
+  }
+};
+
 export const HRRegistration = () => {
-  const [formData, setFormData] = useState({
-    registeringAs: "",
-    fullName: "",
-    email: "",
-    phone: "",
-    department: "",
-    company: "",
-    password: "",
-    confirmPassword: "",
+  const [formData, setFormData] = useState(() => {
+    const draft = getHRDraft();
+
+    return {
+      registeringAs: draft.formData?.registeringAs ?? "",
+      fullName: draft.formData?.fullName ?? "",
+      email: draft.formData?.email ?? "",
+      phone: draft.formData?.phone ?? "",
+      department: draft.formData?.department ?? "",
+      company: draft.formData?.company ?? "",
+      password: draft.formData?.password ?? "",
+      confirmPassword: draft.formData?.confirmPassword ?? "",
+    };
   });
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
+  const [acceptedTerms, setAcceptedTerms] = useState(
+    () => getHRDraft().acceptedTerms ?? false,
+  );
+
+  const [emailVerified, setEmailVerified] = useState(
+    () => getHRDraft().emailVerified ?? false,
+  );
+
+  const [phoneVerified, setPhoneVerified] = useState(
+    () => getHRDraft().phoneVerified ?? false,
+  );
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    sessionStorage.setItem(
+      HR_DRAFT_KEY,
+      JSON.stringify({
+        formData,
+        acceptedTerms,
+        emailVerified,
+        phoneVerified,
+      }),
+    );
+  }, [formData, acceptedTerms, emailVerified, phoneVerified]);
 
   const validate = () => {
     const newErrors = {};
@@ -93,15 +131,114 @@ export const HRRegistration = () => {
       ...prev,
       [name]: value,
     }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+
+    if (name === "email") {
+      setEmailVerified(false);
+    }
+
+    if (name === "phone") {
+      setPhoneVerified(false);
+    }
+  };
+
+  const handleEmailVerify = () => {
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    if (!formData.email.trim()) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Work Email is required",
+      }));
+      return;
+    }
+
+    if (!emailRegex.test(formData.email)) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Enter a valid email address",
+      }));
+      return;
+    }
+
+    sessionStorage.setItem(
+      HR_DRAFT_KEY,
+      JSON.stringify({
+        formData,
+        acceptedTerms,
+        emailVerified,
+        phoneVerified,
+      }),
+    );
+
+    navigate("/components-registration/registration-otp", {
+      state: { type: "email" },
+    });
+  };
+
+  const handlePhoneVerify = () => {
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+    if (!formData.phone.trim()) {
+      setErrors((prev) => ({
+        ...prev,
+        phone: "Phone Number is required",
+      }));
+      return;
+    }
+
+    if (!phoneRegex.test(formData.phone)) {
+      setErrors((prev) => ({
+        ...prev,
+        phone: "Enter a valid 10-digit mobile number",
+      }));
+      return;
+    }
+
+    sessionStorage.setItem(
+      HR_DRAFT_KEY,
+      JSON.stringify({
+        formData,
+        acceptedTerms,
+        emailVerified,
+        phoneVerified,
+      }),
+    );
+
+    navigate("/components-registration/registration-otp", {
+      state: { type: "phone" },
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validate()) {
-      console.log(formData);
-      navigate("/");
+    if (!validate()) {
+      return;
     }
+
+    if (!emailVerified || !phoneVerified) {
+      setErrors((prev) => ({
+        ...prev,
+        emailVerification: !emailVerified
+          ? "Please verify your email address."
+          : "",
+        phoneVerification: !phoneVerified
+          ? "Please verify your phone number."
+          : "",
+      }));
+      return;
+    }
+
+    console.log(formData);
+
+    sessionStorage.removeItem(HR_DRAFT_KEY);
+
+    navigate("/");
   };
   return (
     <div className="ims-hr-registration-page">
@@ -243,14 +380,32 @@ export const HRRegistration = () => {
                   <span className="ims-hr-registration-required">*</span>
                 </label>
 
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john.doe@company.com"
-                  className={`ims-hr-registration-form-input ${errors.email ? "ims-hr-registration-error-border" : ""}`}
-                />
+                <div className="ims-hr-registration-verify-input">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john.doe@company.com"
+                    className={`ims-hr-registration-form-input ${errors.email ? "ims-hr-registration-error-border" : ""}`}
+                  />
+
+                  <button
+                    type="button"
+                    className={`ims-hr-registration-verify-button ${
+                      emailVerified ? "ims-hr-registration-verified" : ""
+                    }`}
+                    onClick={handleEmailVerify}
+                  >
+                    {emailVerified ? " Verified" : "Verify"}
+                  </button>
+                </div>
+
+                {errors.emailVerification && (
+                  <p className="ims-hr-registration-error">
+                    {errors.emailVerification}
+                  </p>
+                )}
                 {errors.email && (
                   <p className="ims-hr-registration-error">{errors.email}</p>
                 )}
@@ -275,7 +430,22 @@ export const HRRegistration = () => {
                     placeholder="Enter your number"
                     className={`ims-hr-registration-form-input ${errors.phone ? "ims-hr-registration-error-border" : ""}`}
                   />
+
+                  <button
+                    type="button"
+                    className={`ims-hr-registration-verify-button ${
+                      phoneVerified ? "ims-hr-registration-verified" : ""
+                    }`}
+                    onClick={handlePhoneVerify}
+                  >
+                    {phoneVerified ? " Verified" : "Verify"}
+                  </button>
                 </div>
+                {errors.phoneVerification && (
+                  <p className="ims-hr-registration-error">
+                    {errors.phoneVerification}
+                  </p>
+                )}
                 {errors.phone && (
                   <p className="ims-hr-registration-error">{errors.phone}</p>
                 )}
@@ -424,6 +594,7 @@ export const HRRegistration = () => {
             {errors.terms && (
               <p className="ims-hr-registration-error">{errors.terms}</p>
             )}
+
             <button type="submit" className="ims-hr-registration-create-button">
               Create Account
             </button>
@@ -439,8 +610,10 @@ export const HRRegistration = () => {
             <div className="ims-hr-registration-signin">
               <p className="ims-hr-registration-signin-text">
                 Already have an account?{" "}
-                <Link to="/components-registration/admin-registration"
-                 className="ims-hr-registration-signin-link">
+                <Link
+                  to="/components-registration/admin-registration"
+                  className="ims-hr-registration-signin-link"
+                >
                   {" "}
                   Sign in
                 </Link>
