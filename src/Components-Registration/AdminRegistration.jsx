@@ -174,8 +174,9 @@ export const AdminRegistration = () => {
               </label>
 
               <div className="ims-admin-registration-role-card">
-                <img src={AdminIcon} alt="Admin" />
-                <span>Admin</span>
+                <img src={AdminIcon}
+                className="ims-admin-registration-role-image" alt="Admin" />
+                <span className="ims-admin-registration-role">Admin</span>
               </div>
             </div>
 

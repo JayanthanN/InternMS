@@ -1,18 +1,17 @@
 .ims-admin-registration-page {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to left, #ffffff 35%, #566b93 93%);
   font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center;
 }
-
 .ims-admin-content-wrapper {
   display: flex;
   flex-direction: row;
   width: 100%;
   max-width: 1920px;
-  
+  min-height: 100vh;
 }
 .ims-admin-registration-left-panel {
   width: 50%;
@@ -21,8 +20,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
-  flex: 1 1 0;
+  
 }
 
 .ims-admin-left-container {
@@ -66,7 +64,8 @@
 .ims-admin-bottom-card {
   display: flex;
   flex-direction: row;
-  width: 580px;
+  width: 100%;
+ max-width: 580px;
   height: 75px;
   border-radius: 12px;
   gap: 16px;
@@ -97,7 +96,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1 1 0;
 }
 
 .ims-admin-registration-form-container {
@@ -134,7 +132,7 @@
   cursor: pointer;
 }
 
-.ims-admin-registration-role-card img {
+.ims-admin-registration-role-image {
   width: 32px;
   height: auto;
 }
@@ -293,7 +291,7 @@
   margin-left: 5px;
 }
 
-@media (min-width: 1441px){
+@media (min-width: 1441px) {
   .ims-admin-registration-page {
     max-width: 1920px;
     max-height: 1080px;
@@ -307,7 +305,6 @@
     width: 50%;
     min-width: 0;
     padding: 25px 24px;
-   
   }
 
   .ims-admin-header {
@@ -341,6 +338,7 @@
   .ims-admin-registration-form-container {
     width: 100%;
     max-width: 920px;
+    
   }
   .ims-admin-registration-form-row {
     gap: 12px;
@@ -360,60 +358,76 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .ims-admin-registration-left-panel,
   .ims-admin-registration-right-panel {
-    flex: 1 1 0;
+    width: 50%;
     min-width: 0;
-    padding: 25px 20px 0;
+    padding: 20px 14px;
   }
 
   .ims-admin-header {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 24px;
   }
   .ims-admin-sub-header {
     font-size: 9px;
     line-height: 15px;
   }
   .ims-admin-illustartion {
-    width: 220px;
+    width: 250px;
+    max-width: 100%;
+    margin-top: 8px;
   }
 
   .ims-admin-bottom-cards-container {
-    margin-top: 15px;
+    gap: 10px;
+    margin-top: 10px;
   }
   .ims-admin-bottom-card {
     width: 100%;
-    height: 65px;
-    padding: 10px;
-    gap: 10px;
+    height: auto;
+    min-height: 55px;
+    padding: 8px;
+    gap: 7px;
   }
   .ims-admin-sheild-icon {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
   .ims-admin-card-header {
-    font-size: 13px;
+    font-size: 11px;
   }
   .ims-admin-card-description {
-    font-size: 11px;
+    font-size: 9px;
+  }
+  .ims-admin-registration-form-container {
+    width: 100%;
   }
 
   .ims-admin-registration-form-title {
-    font-size: 20px;
+    font-size: 18px;
   }
   .ims-admin-registration-form-description {
-    font-size: 11px;
+    font-size: 10px;
+    margin-bottom: 10px;
   }
   .ims-admin-registration-role-card {
-    width: 100px;
-    height: 50px;
+    width: 85px;
+    height: 45px;
+  }
+
+  .ims-admin-registration-role {
     font-size: 10px;
   }
 
+  .ims-admin-registration-role-image {
+    width: 24px;
+  }
+
   .ims-admin-registration-form-row {
-    gap: 10px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
   }
   .ims-admin-registration-form-group {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   .ims-admin-registration-form-label {
     font-size: 9px;
@@ -423,23 +437,55 @@
   .ims-admin-registration-form-input,
   .ims-admin-registration-form-select {
     height: 35px;
-    font-size: 11px;
+    padding: 0 7px;
+    font-size: 10px;
+  }
+
+  .ims-admin-registration-phone-input {
+    gap: 3px;
   }
 
   .ims-admin-registration-country-code {
-    width: 40px;
-    height: 35px;
-    font-size: 11px;
+    width: 32px;
+    height: 32px;
+    font-size: 9px;
   }
   .ims-admin-registration-dropdown-arrow {
-    right: 10px;
-    top: 32px;
+    right: 7px;
+    top: 29px;
+    width: 10px;
+  }
+
+  .ims-admin-registration-password-icon {
+    width: 11px;
+    height: auto;
+    right: 7px;
+  }
+
+  .ims-admin-registration-error{
+    font-size: 9px;
+  }
+
+  .ims-admin-registration-terms {
+    gap: 5px;
+  }
+
+  .ims-admin-registration-terms-text {
+    font-size: 9px;
+  }
+
+  .ims-admin-registration-terms-checkbox {
     width: 12px;
+    height: 12px;
   }
 
   .ims-admin-registration-create-button {
     height: 38px;
     font-size: 13px;
     margin-top: 15px;
+  }
+  .ims-admin-registration-signin-text {
+    font-size: 9px;
+    margin-top: 12px;
   }
 }
