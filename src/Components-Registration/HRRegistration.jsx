@@ -611,7 +611,7 @@ export const HRRegistration = () => {
               <p className="ims-hr-registration-signin-text">
                 Already have an account?{" "}
                 <Link
-                  to="/components-registration/admin-registration"
+                  to="/"
                   className="ims-hr-registration-signin-link"
                 >
                   {" "}

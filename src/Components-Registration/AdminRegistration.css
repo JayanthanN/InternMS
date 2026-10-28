@@ -1,4 +1,4 @@
-.ims-admin-registration-page {
+.ims-admin-container {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(to left, #ffffff 35%, #566b93 93%);
@@ -6,21 +6,20 @@
   display: flex;
   justify-content: center;
 }
-.ims-admin-content-wrapper {
+.ims-admin-inner-container {
   display: flex;
   flex-direction: row;
   width: 100%;
   max-width: 1920px;
   min-height: 100vh;
 }
-.ims-admin-registration-left-panel {
+.ims-admin-left-section {
   width: 50%;
   height: auto;
   padding: 35px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 }
 
 .ims-admin-left-container {
@@ -65,7 +64,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
- max-width: 580px;
+  max-width: 580px;
   height: 75px;
   border-radius: 12px;
   gap: 16px;
@@ -89,7 +88,7 @@
   font-size: 14px;
 }
 
-.ims-admin-registration-right-panel {
+.ims-admin-right-section {
   width: 50%;
   height: auto;
   padding: 35px 50px 0;
@@ -135,6 +134,14 @@
 .ims-admin-registration-role-image {
   width: 32px;
   height: auto;
+}
+
+.ims-admin-registration-role {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .ims-admin-registration-form-row {
@@ -197,6 +204,9 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  width: 100%;
+  min-width: 0;
+  position: static;
 }
 
 .ims-admin-registration-country-code {
@@ -210,6 +220,40 @@
   align-items: center;
   justify-content: center;
   font-size: 12px;
+}
+
+.ims-admin-registration-verification-input {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.ims-admin-registration-verify-button {
+  width: 58px;
+  height: 28px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid #132a5680;
+  background: #132a56;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ims-admin-registration-verified {
+  width: 58px;
+  height: 28px;
+  background: #15803d;
+  color: #ffffff;
 }
 
 .ims-admin-registration-password-wrapper {
@@ -291,201 +335,258 @@
   margin-left: 5px;
 }
 
-@media (min-width: 1441px) {
-  .ims-admin-registration-page {
-    max-width: 1920px;
-    max-height: 1080px;
-    margin: 0 auto;
-  }
-}
-
+/* lap screen size */
 @media (min-width: 1024px) and (max-width: 1440px) {
-  .ims-admin-registration-left-panel,
-  .ims-admin-registration-right-panel {
-    width: 50%;
+  .ims-admin-right-section,
+  .ims-admin-left-section {
+    padding: 25px 30px 0;
     min-width: 0;
-    padding: 25px 24px;
+    box-sizing: border-box;
   }
 
   .ims-admin-header {
-    font-size: 24px;
+    font-size: 26px;
   }
+
   .ims-admin-sub-header {
-    font-size: 12px;
+    font-size: 14px;
   }
+
   .ims-admin-illustartion {
-    width: 300px;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
   }
 
   .ims-admin-bottom-card {
     width: 100%;
     max-width: 580px;
-    height: 70px;
+    height: auto;
+    min-height: 75px;
+    box-sizing: border-box;
     padding: 14px;
     gap: 12px;
   }
+
   .ims-admin-card-header {
     font-size: 15px;
   }
+
   .ims-admin-card-description {
     font-size: 13px;
+  }
+
+  .ims-admin-registration-form-container {
+    width: 100%;
+    max-width: 920px;
   }
 
   .ims-admin-registration-form-title {
     font-size: 24px;
   }
 
-  .ims-admin-registration-form-container {
-    width: 100%;
-    max-width: 920px;
-    
-  }
   .ims-admin-registration-form-row {
     gap: 12px;
   }
+
   .ims-admin-registration-form-input,
   .ims-admin-registration-form-select {
     height: 40px;
   }
+
   .ims-admin-registration-country-code {
     height: 40px;
-  }
-  .ims-admin-registration-create-button {
-    height: 40px;
+    flex-shrink: 0;
   }
 }
 
+/* tablet screen size  */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .ims-admin-registration-left-panel,
-  .ims-admin-registration-right-panel {
+  .ims-admin-container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .ims-admin-inner-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 25px 24px;
+    box-sizing: border-box;
+    align-items: flex-start;
+  }
+
+  .ims-admin-left-section {
     width: 50%;
     min-width: 0;
-    padding: 20px 14px;
+    height: auto;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .ims-admin-right-section {
+    width: 50%;
+    min-width: 0;
+    height: auto;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .ims-admin-header {
-    font-size: 18px;
-    line-height: 24px;
+    width: 100%;
+    height: auto;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
   }
+
   .ims-admin-sub-header {
-    font-size: 9px;
-    line-height: 15px;
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    line-height: 17px;
   }
+
   .ims-admin-illustartion {
-    width: 250px;
-    max-width: 100%;
-    margin-top: 8px;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
   }
 
   .ims-admin-bottom-cards-container {
-    gap: 10px;
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
   }
+
+  .ims-admin-bottom-card-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .ims-admin-bottom-card {
     width: 100%;
     height: auto;
-    min-height: 55px;
-    padding: 8px;
-    gap: 7px;
+    min-height: 50px;
+    padding: 10px;
+    gap: 10px;
   }
+
   .ims-admin-sheild-icon {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
   }
+
   .ims-admin-card-header {
     font-size: 11px;
+    line-height: 13px;
   }
+
   .ims-admin-card-description {
-    font-size: 9px;
-  }
-  .ims-admin-registration-form-container {
-    width: 100%;
+    font-size: 10px;
+    line-height: 13px;
   }
 
   .ims-admin-registration-form-title {
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 27px;
   }
+
   .ims-admin-registration-form-description {
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 10px;
   }
+
   .ims-admin-registration-role-card {
-    width: 85px;
-    height: 45px;
-  }
-
-  .ims-admin-registration-role {
-    font-size: 10px;
-  }
-
-  .ims-admin-registration-role-image {
-    width: 24px;
+    width: 110px;
+    height: 58px;
   }
 
   .ims-admin-registration-form-row {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 8px;
   }
+
   .ims-admin-registration-form-group {
-    margin-bottom: 8px;
+    min-width: 0;
+    margin-bottom: 10px;
   }
+
   .ims-admin-registration-form-label {
     font-size: 9px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .ims-admin-registration-form-input,
   .ims-admin-registration-form-select {
-    height: 35px;
-    padding: 0 7px;
+    width: 100%;
+    height: 32px;
+    padding: 0 10px;
     font-size: 10px;
+    box-sizing: border-box;
   }
 
-  .ims-admin-registration-phone-input {
-    gap: 3px;
+  .ims-admin-registration-dropdown-arrow {
+    right: 10px;
+    top: 36px;
+    width: 12px;
   }
 
   .ims-admin-registration-country-code {
-    width: 32px;
-    height: 32px;
-    font-size: 9px;
+    width: 40px;
+    height: 35px;
+    flex-shrink: 0;
+    font-size: 11px;
   }
-  .ims-admin-registration-dropdown-arrow {
-    right: 7px;
-    top: 29px;
-    width: 10px;
+
+  .ims-admin-registration-phone-input {
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .ims-admin-registration-verify-button,
+  .ims-admin-registration-verified {
+    width: 38px;
+    height: 24px;
+    right: 6px;
+    font-size: 9px;
   }
 
   .ims-admin-registration-password-icon {
-    width: 11px;
-    height: auto;
-    right: 7px;
+    right: 8px;
   }
 
-  .ims-admin-registration-error{
-    font-size: 9px;
+  .ims-admin-registration-error {
+    font-size: 10px;
   }
 
-  .ims-admin-registration-terms {
-    gap: 5px;
-  }
-
-  .ims-admin-registration-terms-text {
-    font-size: 9px;
-  }
-
-  .ims-admin-registration-terms-checkbox {
-    width: 12px;
-    height: 12px;
+  .ims-admin-registration-terms-text,
+  .ims-admin-registration-signin-text {
+    font-size: 10px;
   }
 
   .ims-admin-registration-create-button {
-    height: 38px;
-    font-size: 13px;
-    margin-top: 15px;
+    height: 40px;
+    font-size: 11px;
+    margin-top: 14px;
   }
-  .ims-admin-registration-signin-text {
-    font-size: 9px;
-    margin-top: 12px;
+  .ims-admin-registration-terms-link {
+    font-size: 10px;
+    color: #176789;
+    cursor: pointer;
   }
 }

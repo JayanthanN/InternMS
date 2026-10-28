@@ -34,49 +34,63 @@ export const RegistrationOTP = () => {
       inputRefs.current[index - 1]?.focus();
     }
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    const code = otp.join("");
-    const newErrors = {};
+  const code = otp.join("");
+  const newErrors = {};
 
-    if (code.length !== 6) {
-      newErrors.verificationCode =
-        "Please enter the 6-digit verification code.";
-    }
+  if (code.length !== 6) {
+    newErrors.verificationCode =
+      "Please enter the 6-digit verification code.";
+  }
 
-    setErrors(newErrors);
+  setErrors(newErrors);
 
-    if (Object.keys(newErrors).length > 0) {
-      return;
-    }
+  if (Object.keys(newErrors).length > 0) {
+    return;
+  }
 
-    const draftKey = "hrRegistrationDraft";
-    let draft = {};
+  const source = location.state?.source || "hr";
 
-    try {
-      draft = JSON.parse(sessionStorage.getItem(draftKey)) || {};
-    } catch {
-      draft = {};
-    }
+  const draftKey =
+    source === "admin"
+      ? "adminRegistrationDraft"
+      : "hrRegistrationDraft";
 
-    if (!draft.formData) {
-      setErrors({
-        verificationCode: "Registration details not found. Please try again.",
-      });
-      return;
-    }
+  let draft = {};
 
-    const updatedDraft = {
-      ...draft,
-      emailVerified: type === "email" ? true : (draft.emailVerified ?? false),
-      phoneVerified: type === "phone" ? true : (draft.phoneVerified ?? false),
-    };
+  try {
+    draft = JSON.parse(sessionStorage.getItem(draftKey)) || {};
+  } catch {
+    draft = {};
+  }
 
-    sessionStorage.setItem(draftKey, JSON.stringify(updatedDraft));
+  if (!draft.formData) {
+    setErrors({
+      verificationCode: "Registration details not found. Please try again.",
+    });
+    return;
+  }
 
-    navigate("/components-registration/hr-registration");
+  const updatedDraft = {
+    ...draft,
+    emailVerified:
+      type === "email" ? true : (draft.emailVerified ?? false),
+    phoneVerified:
+      type === "phone" ? true : (draft.phoneVerified ?? false),
   };
+
+  sessionStorage.setItem(draftKey, JSON.stringify(updatedDraft));
+
+  navigate(
+    source === "admin"
+      ? "/components-registration/admin-registration"
+      : "/components-registration/hr-registration"
+  );
+};
+
   return (
     <div className="ims-reg-otp-container ">
       <div className="ims-reg-otp-inner-container">
